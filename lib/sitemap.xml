@@ -32,10 +32,4 @@
     </url>
   {% endunless %}{% endfor %}
   {% endunless %}{% endfor %}
-  {% for file in page.static_files %}
-  <url>
-    <loc>{{ file.path | absolute_url }}</loc>
-    <lastmod>{{ file.modified_time | date_to_xmlschema }}</lastmod>
-  </url>
-  {% endfor %}
 </urlset>

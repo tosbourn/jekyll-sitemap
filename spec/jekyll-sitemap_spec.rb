@@ -79,24 +79,6 @@ describe(Jekyll::JekyllSitemap) do
     expect(contents).to match /<lastmod>2013-12-12T00:00:00(-|\+)\d+:\d+<\/lastmod>/
   end
 
-  it "puts all the static HTML files in the sitemap.xml file" do
-    expect(contents).to match /<loc>http:\/\/example\.org\/some-subfolder\/this-is-a-subfile\.html<\/loc>/
-  end
-
-  it "does not include assets or any static files that aren't .html" do
-    expect(contents).not_to match /<loc>http:\/\/example\.org\/images\/hubot\.png<\/loc>/
-    expect(contents).not_to match /<loc>http:\/\/example\.org\/feeds\/atom\.xml<\/loc>/
-  end
-
-  it "does include assets or any static files with .xhtml and .htm extensions" do
-    expect(contents).to match /\/some-subfolder\/xhtml\.xhtml/
-    expect(contents).to match /\/some-subfolder\/htm\.htm/
-  end
-
-  it "does include assets or any static files with .pdf extension" do
-    expect(contents).to match %r!/static_files/test.pdf!
-  end
-
   it "does not include posts that have set 'sitemap: false'" do
     expect(contents).not_to match /\/exclude-this-post\.html<\/loc>/
   end
